@@ -146,9 +146,9 @@
     display:none;
     align-items:center;
     gap:6px;
-    background:none;
-    border:1px solid #bbb;
-    color:#444;
+    background:var(--accent);
+    border:1px solid var(--accent);
+    color:#fff;
     font-family: inherit;
     font-size:11px;
     letter-spacing:1px;
@@ -157,12 +157,21 @@
     border-radius:20px;
     cursor:pointer;
   }
-  #fullscreenBtn:active, #exitFullscreenBtn:active{ background:var(--accent); border-color:var(--accent); color:#fff; }
+  #fullscreenBtn:active, #exitFullscreenBtn:active{ background:#c40069; border-color:#c40069; }
 </style>
 </head>
 <body>
 
   <h1>The Art of Belonging &nbsp;·&nbsp; Khloe Rios-Wyatt</h1>
+
+  <div id="book-outer">
+    <div id="stage">
+      <div class="spine-shadow" id="spineShadow"></div>
+      <div id="staticView"></div>
+    </div>
+    <div class="clickzone cz-left" id="czLeft"></div>
+    <div class="clickzone cz-right" id="czRight"></div>
+  </div>
 
   <button id="fullscreenBtn" onclick="window.open(window.location.href, '_blank')">Open Full Screen &#8599;</button>
   <button id="exitFullscreenBtn" onclick="window.close()">Exit Full Screen &#10005;</button>
@@ -177,15 +186,6 @@
       exitBtn.style.display = (!isEmbedded) ? 'inline-flex' : 'none';
     })();
   </script>
-
-  <div id="book-outer">
-    <div id="stage">
-      <div class="spine-shadow" id="spineShadow"></div>
-      <div id="staticView"></div>
-    </div>
-    <div class="clickzone cz-left" id="czLeft"></div>
-    <div class="clickzone cz-right" id="czRight"></div>
-  </div>
 
   <div id="controls">
     <button id="prevBtn" title="Previous">&#8249;</button>
