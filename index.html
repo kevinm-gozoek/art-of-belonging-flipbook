@@ -46,7 +46,7 @@
     }
     h1{ font-size: 11px; }
     #book-outer{
-      width: min(92vw, calc((100vh - 110px) * 1.525));
+      width: min(92vw, calc((100vh - 160px) * 1.525));
     }
   }
   #stage{
@@ -142,27 +142,22 @@
     font-size:11px; color:#999; letter-spacing:1px;
   }
 
-  #fullscreenBtn{
+  #fullscreenBtn, #exitFullscreenBtn{
     display:none;
+    align-items:center;
+    gap:6px;
+    background:none;
+    border:1px solid #bbb;
+    color:#444;
+    font-family: inherit;
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    padding:8px 14px;
+    border-radius:20px;
+    cursor:pointer;
   }
-  @media (max-width: 700px){
-    #fullscreenBtn{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:none;
-      border:1px solid #bbb;
-      color:#444;
-      font-family: inherit;
-      font-size:11px;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      padding:8px 14px;
-      border-radius:20px;
-      cursor:pointer;
-    }
-    #fullscreenBtn:active{ background:var(--accent); border-color:var(--accent); color:#fff; }
-  }
+  #fullscreenBtn:active, #exitFullscreenBtn:active{ background:var(--accent); border-color:var(--accent); color:#fff; }
 </style>
 </head>
 <body>
@@ -170,6 +165,18 @@
   <h1>The Art of Belonging &nbsp;·&nbsp; Khloe Rios-Wyatt</h1>
 
   <button id="fullscreenBtn" onclick="window.open(window.location.href, '_blank')">Open Full Screen &#8599;</button>
+  <button id="exitFullscreenBtn" onclick="window.close()">Exit Full Screen &#10005;</button>
+
+  <script>
+    (function(){
+      var isEmbedded = window.top !== window.self;
+      var isMobile = window.matchMedia('(max-width: 700px)').matches;
+      var openBtn = document.getElementById('fullscreenBtn');
+      var exitBtn = document.getElementById('exitFullscreenBtn');
+      openBtn.style.display = (isEmbedded && isMobile) ? 'inline-flex' : 'none';
+      exitBtn.style.display = (!isEmbedded) ? 'inline-flex' : 'none';
+    })();
+  </script>
 
   <div id="book-outer">
     <div id="stage">
