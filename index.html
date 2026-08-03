@@ -41,10 +41,12 @@
     body{
       height:auto;
       justify-content:flex-start;
-      padding: 20px 0;
+      padding: 12px 0;
+      gap: 10px;
     }
+    h1{ font-size: 11px; }
     #book-outer{
-      width: 92vw;
+      width: min(92vw, calc((100vh - 110px) * 1.525));
     }
   }
   #stage{
@@ -139,11 +141,35 @@
   #hint{
     font-size:11px; color:#999; letter-spacing:1px;
   }
+
+  #fullscreenBtn{
+    display:none;
+  }
+  @media (max-width: 700px){
+    #fullscreenBtn{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      background:none;
+      border:1px solid #bbb;
+      color:#444;
+      font-family: inherit;
+      font-size:11px;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      padding:8px 14px;
+      border-radius:20px;
+      cursor:pointer;
+    }
+    #fullscreenBtn:active{ background:var(--accent); border-color:var(--accent); color:#fff; }
+  }
 </style>
 </head>
 <body>
 
   <h1>The Art of Belonging &nbsp;·&nbsp; Khloe Rios-Wyatt</h1>
+
+  <button id="fullscreenBtn" onclick="window.open(window.location.href, '_blank')">Open Full Screen &#8599;</button>
 
   <div id="book-outer">
     <div id="stage">
